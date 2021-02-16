@@ -1,0 +1,31 @@
+Ajax란 비동기 방식의 javascript와 xml을 가리킵니다.
+
+동기방식 - 서버에서 신호를 보냈을때 응답이 돌아와야 다음 동작을 수행할 수 있습니다.
+
+비동기 방식 - 서버에서 신호를 보냈을때 응답상태와 상관없이 다음 동작을 수핼 할 수 있습니다.
+
+
+
+Ajax 관련 메서드
+
+load() 외부 콘텐츠를 가져올 때 사용합니다.
+
+$.ajax() 데이터를 서버에 HTTP POST, GET 방식으로 전송할 수 있으며, HTML, XML, JSON, 텍스트 유형에 데이터를 요청할 수 있는 통합적인 메서드입니다.
+         다음에 보이는 $.post(), $.get(), $.getJSON() 메서드의 기능을 하나로 합쳐 놓은 것이라고 보면 됩니다.
+
+$.post() 데이터를 서버에 HTTP POST 방식으로 전송한 후 서버측의 응답을 받을 때 사용합니다.
+
+$.get() 데이터를 서버에 HTTP GET 방식으로 전송한 후 서버측의 응답을 받을 때 사용합니다.
+
+$.getJSON() 데이터를 서버에 HTTP GET 방식으로 전송한 후 서버측의 응답을 JSON형식으로 받을 때 사용합니다.
+
+$.getScript() Ajax를 이용하여 외부 자바스크립트를 불러옵니다.
+                예) $("button").click(function(){
+                    $.getScript("demo_ajax_script.js");
+                });
+
+.ajaxStop(function(){...}) 비동기 방식으로 서버에 요청이 완료되었을 떄 함수가 실행됩니다.
+
+.ajaxSuccess(function(){...}) ajax 요청이 성공적으로 완료되면 함수가 실행됩니다.
+
+ajaxComplete(function(){...}) Ajax 통신이 완료되면 함수가 실행됩니다.

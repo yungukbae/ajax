@@ -1,0 +1,12 @@
+$.ajax({
+    url:"전송 페이지"(action url),
+    type: "전송방식"(get,post),
+    data: "전송할 데이터".
+    dataType: "요청한 데이터 형식"("html","xml","json","text","jsonp"),
+    success: function(data){
+        전송에 성공하면 실행될 코드;
+    },
+    error: function(){
+        전송에 실패하면 실행될 코드;
+    }
+})

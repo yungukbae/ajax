@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+        $(function(){
+            $.ajax({
+                url:"./MOCK_DATAcp.json",
+                dataType:"json",
+                success:function(data){
+                    if(data.length>0){
+                        let tb = $("<table />");
+                        for(let i in data){
+                            let $id = data[i].id;
+                            let $first_name = data[i].first_name;
+                            let $last_name = data[i].last_name;
+                            let $email = data[i].email;
+                            let $gender = data[i].gender;
+                            let $ip_address = data[i].ip_address;
+
+                            let row = $("<tr />").append(
+                                $("<td />").text($id),
+                                $("<td />").text($first_name),
+                                $("<td />").text($last_name),
+                                $("<td />").text($email),
+                                $("<td />").text($gender),
+                                $("<td />").text($ip_address)
+                            );
+                            tb.append(row);
+                        }
+                        $(".wrap").append(tb);
+                    }
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    
+    <div class="wrap"></div>
+    
+</body>
+</html>
