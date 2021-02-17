@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+
+        $(function(){
+            $.ajax({
+            url:"news_test.php",
+            dataType:"xml",
+            success:function(data){
+                let $items = $(data).find("item");
+                if($items.length > 0){
+                    $items = $items.slice(0,10);
+                    let $ulTag = $("<ul/>");
+                    $.each($items,function(i,o){
+                        let $title = $(o).find("title").text();
+                        let $link = $(o).find("link").text();
+                        let $aTag = $("<a/>").attr({
+                            "href":$link,
+                            "target":"_blank"
+                        }).text($title);
+                        let $liTag = $("<li/>").append($aTag);
+                        $ulTag.append($liTag);
+                    });
+                    $(".wrap").append($ulTag);
+                }
+            },
+            error: function(){
+                    console.log("fail");
+            }
+            
+        });
+    });
+
+</script>
+</head>
+<body>
+    <div class="wrap">
+    </div>
+</body>
+</html>
